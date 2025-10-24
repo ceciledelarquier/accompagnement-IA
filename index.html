@@ -459,12 +459,21 @@
         .benefits-section {
             padding: 30px;
         }
-        
+         /* CRITIQUE : Opportunités en 1 colonne sur mobile */
+    .opportunities-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        }
+              
         /* À propos responsive */
         section > .container > div[style*="grid-template-columns: 1fr 2fr"],
         section > .container > div[style*="grid-template-columns: 2fr 1fr"] {
             grid-template-columns: 1fr !important;
             gap: 30px !important;
+        }
+          /* Piliers en 2 colonnes sur mobile */
+        .pillars-grid {
+            grid-template-columns: repeat(2, 1fr);
         }
     }
     </style>
