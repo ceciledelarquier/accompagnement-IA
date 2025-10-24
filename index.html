@@ -150,20 +150,22 @@
         }
         
         .logo-carousel-wrapper {
-            position: relative;
-            max-width: 1000px;
+           position: relative;
+            max-width: 100%;
             margin: 0 auto;
             padding: 0 60px;
+            overflow: hidden;
         }
         
         .logo-carousel {
             display: flex;
             align-items: center;
-            justify-content: flex-start;
             gap: 50px;
-            transition: transform 0.5s ease;
-            flex-wrap: nowrap;
-            overflow: hidden;
+            animation: scroll 20s linear infinite;
+        }
+        
+        .logo-carousel:hover {
+            animation-play-state: paused;
         }
         
         .logo-carousel img {
@@ -171,12 +173,23 @@
             width: auto;
             object-fit: contain;
             flex-shrink: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
         .logo-carousel img:hover {
             transform: scale(1.1);
-            opacity: 1 !important;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+
         }
         
         /* Flèches */
@@ -600,6 +613,18 @@
                 <button class="carousel-arrow left" onclick="moveCarousel(-1)">‹</button>
                 
                 <div class="logo-carousel" id="logoCarousel">
+                    <!-- Première série de logos -->
+                    <img src="logominarm11.png" alt="Ministère des Armées">
+                    <img src="logoicade11.png" alt="Icade">
+                    <img src="logonotaire11.png" alt="Chambre des notaires Centre Val de Loire">
+                    <img src="logodm11.png" alt="Durand Montouché">
+                    <img src="logolbia11.png" alt="La Bataille de l'IA">
+                    <img src="logotepsa11.png" alt="Tepsa">
+                    <img src="logotrustone11.png" alt="Trustone">
+                    <img src="logomdc11.png" alt="Maison des cadres du Loiret">
+                    <img src="logovinci11.png" alt="Haute Ecole Léonard de Vinci">
+                    
+                    <!-- Duplication pour la boucle infinie -->
                     <img src="logominarm11.png" alt="Ministère des Armées">
                     <img src="logoicade11.png" alt="Icade">
                     <img src="logonotaire11.png" alt="Chambre des notaires Centre Val de Loire">
@@ -838,86 +863,26 @@
     </footer>
     <script>
 const carousel = document.getElementById('logoCarousel');
-const logos = Array.from(carousel.querySelectorAll('img'));
-let currentIndex = 0;
-let autoPlayInterval;
+let isPaused = false;
 
-// Dupliquer les logos pour créer une boucle infinie
-function duplicateLogos() {
-    // Clone tous les logos et les ajoute à la fin
-    logos.forEach(logo => {
-        const clone = logo.cloneNode(true);
-        carousel.appendChild(clone);
-    });
-    // Clone encore une fois pour assurer la fluidité
-    logos.forEach(logo => {
-        const clone = logo.cloneNode(true);
-        carousel.appendChild(clone);
-    });
-}
-
-// Fonction pour déplacer le carrousel
+// Fonction pour accélérer/ralentir le défilement
 function moveCarousel(direction) {
-    const allLogos = carousel.querySelectorAll('img');
-    const logoWidth = allLogos[0].offsetWidth;
-    const gap = 50;
-    const slideWidth = logoWidth + gap;
-    
-    currentIndex += direction;
-    
-    // Animation fluide
-    carousel.style.transition = 'transform 0.5s ease';
-    const offset = -currentIndex * slideWidth;
-    carousel.style.transform = `translateX(${offset}px)`;
-    
-    // Gestion de la boucle infinie
-    setTimeout(() => {
-        if (currentIndex >= logos.length) {
-            // Retour au début sans transition
-            carousel.style.transition = 'none';
-            currentIndex = 0;
-            carousel.style.transform = `translateX(0px)`;
-        } else if (currentIndex < 0) {
-            // Retour à la fin sans transition
-            carousel.style.transition = 'none';
-            currentIndex = logos.length - 1;
-            const offset = -currentIndex * slideWidth;
-            carousel.style.transform = `translateX(${offset}px)`;
-        }
-    }, 500);
+    if (direction === -1) {
+        // Ralentit temporairement
+        carousel.style.animationDuration = '30s';
+        setTimeout(() => {
+            carousel.style.animationDuration = '20s';
+        }, 2000);
+    } else {
+        // Accélère temporairement
+        carousel.style.animationDuration = '10s';
+        setTimeout(() => {
+            carousel.style.animationDuration = '20s';
+        }, 2000);
+    }
 }
 
-// Défilement automatique
-function startAutoPlay() {
-    autoPlayInterval = setInterval(() => {
-        moveCarousel(1);
-    }, 3000); // Change toutes les 3 secondes
-}
-
-// Pause au survol
-carousel.addEventListener('mouseenter', () => {
-    clearInterval(autoPlayInterval);
-});
-
-carousel.addEventListener('mouseleave', () => {
-    startAutoPlay();
-});
-
-// Initialisation
-window.addEventListener('load', () => {
-    duplicateLogos();
-    startAutoPlay();
-});
-
-// Responsive
-window.addEventListener('resize', () => {
-    const allLogos = carousel.querySelectorAll('img');
-    const logoWidth = allLogos[0].offsetWidth;
-    const gap = 50;
-    const slideWidth = logoWidth + gap;
-    const offset = -currentIndex * slideWidth;
-    carousel.style.transform = `translateX(${offset}px)`;
-});
+// Pause au survol (déjà géré par CSS :hover)
 </script>
 </body>
 </html>
