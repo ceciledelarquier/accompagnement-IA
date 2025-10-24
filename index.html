@@ -159,7 +159,7 @@
         .logo-carousel {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 50px;
             transition: transform 0.5s ease;
             flex-wrap: nowrap;
@@ -813,32 +813,54 @@
         </div>
     </footer>
     <script>
-let currentIndex = 0;
 const carousel = document.getElementById('logoCarousel');
-const logos = carousel.querySelectorAll('img');
-const totalLogos = logos.length;
+const logos = Array.from(carousel.querySelectorAll('img'));
+let currentIndex = 0;
 let autoPlayInterval;
+
+// Dupliquer les logos pour créer une boucle infinie
+function duplicateLogos() {
+    // Clone tous les logos et les ajoute à la fin
+    logos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        carousel.appendChild(clone);
+    });
+    // Clone encore une fois pour assurer la fluidité
+    logos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        carousel.appendChild(clone);
+    });
+}
 
 // Fonction pour déplacer le carrousel
 function moveCarousel(direction) {
+    const allLogos = carousel.querySelectorAll('img');
+    const logoWidth = allLogos[0].offsetWidth;
+    const gap = 50;
+    const slideWidth = logoWidth + gap;
+    
     currentIndex += direction;
     
-    // Boucle infinie
-    if (currentIndex < 0) {
-        currentIndex = totalLogos - 1;
-    } else if (currentIndex >= totalLogos) {
-        currentIndex = 0;
-    }
-    
-    updateCarousel();
-}
-
-// Met à jour l'affichage
-function updateCarousel() {
-    const logoWidth = logos[0].offsetWidth;
-    const gap = 50; // Correspond au gap du CSS
-    const offset = -currentIndex * (logoWidth + gap);
+    // Animation fluide
+    carousel.style.transition = 'transform 0.5s ease';
+    const offset = -currentIndex * slideWidth;
     carousel.style.transform = `translateX(${offset}px)`;
+    
+    // Gestion de la boucle infinie
+    setTimeout(() => {
+        if (currentIndex >= logos.length) {
+            // Retour au début sans transition
+            carousel.style.transition = 'none';
+            currentIndex = 0;
+            carousel.style.transform = `translateX(0px)`;
+        } else if (currentIndex < 0) {
+            // Retour à la fin sans transition
+            carousel.style.transition = 'none';
+            currentIndex = logos.length - 1;
+            const offset = -currentIndex * slideWidth;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
+    }, 500);
 }
 
 // Défilement automatique
@@ -857,13 +879,21 @@ carousel.addEventListener('mouseleave', () => {
     startAutoPlay();
 });
 
-// Démarrage automatique au chargement
+// Initialisation
 window.addEventListener('load', () => {
+    duplicateLogos();
     startAutoPlay();
 });
 
-// Responsive : recalculer en cas de redimensionnement
-window.addEventListener('resize', updateCarousel);
+// Responsive
+window.addEventListener('resize', () => {
+    const allLogos = carousel.querySelectorAll('img');
+    const logoWidth = allLogos[0].offsetWidth;
+    const gap = 50;
+    const slideWidth = logoWidth + gap;
+    const offset = -currentIndex * slideWidth;
+    carousel.style.transform = `translateX(${offset}px)`;
+});
 </script>
 </body>
 </html>
