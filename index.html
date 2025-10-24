@@ -133,11 +133,12 @@
             background: rgba(255,255,255,0.1);
         }
         
-        /* Social Proof Section */
+        /* Social Proof Section - Carrousel */
         .social-proof {
             padding: 60px 0;
             background: #f8f9fa;
             text-align: center;
+            overflow: hidden;
         }
         
         .social-proof h2 {
@@ -145,24 +146,72 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #7f8c8d;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
-        .logos {
+        .logo-carousel-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+        
+        .logo-carousel {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             gap: 50px;
-            flex-wrap: wrap;
+            transition: transform 0.5s ease;
+            flex-wrap: nowrap;
+            overflow: hidden;
         }
         
-        .logo-placeholder {
-            padding: 20px 40px;
-            background: #ffffff;
-            border-radius: 8px;
-            font-weight: 600;
-            color: #3f3bc4;
-            border: 2px solid #e8e8e8;
+        .logo-carousel img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .logo-carousel img:hover {
+            transform: scale(1.1);
+            opacity: 1 !important;
+        }
+        
+        /* Flèches */
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3f3bc4;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .carousel-arrow:hover {
+            background: #5856d6;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-arrow.left {
+            left: 0;
+        }
+        
+        .carousel-arrow.right {
+            right: 0;
+        }
         }
         
         /* Opportunity Section */
@@ -518,25 +567,30 @@
         </div>
     </section>
 
-    <!-- Social Proof -->
+    <<!-- Social Proof -->
     <section class="social-proof">
         <div class="container">
             <h2>Ils m'ont fait confiance :</h2>
-            <div class="logos">
-                <div class="logos">
-                    <img src="logominarm11.png" alt="Ministère des Armées" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logoicade11.png" alt="Icade" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logonotaire11.png" alt="Chambre des notaires Centre Val de Loire" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logodm11.png" alt="Durand Montouché" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logolbia11.png" alt="La Bataille de l'IA" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logotepsa11.png" alt="Tepsa" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logotrustone11.png" alt="Trustone" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logomdc11.png" alt="Maison des cadres du Loiret" style="height: 60px; width: auto; opacity: 0.7;">
-                    <img src="logovinci11.png" alt="Haute Ecole Léonard de Vinci" style="height: 60px; width: auto; opacity: 0.7;">
+            
+            <div class="logo-carousel-wrapper">
+                <button class="carousel-arrow left" onclick="moveCarousel(-1)">‹</button>
+                
+                <div class="logo-carousel" id="logoCarousel">
+                    <img src="logominarm11.png" alt="Ministère des Armées">
+                    <img src="logoicade11.png" alt="Icade">
+                    <img src="logonotaire11.png" alt="Chambre des notaires Centre Val de Loire">
+                    <img src="logodm11.png" alt="Durand Montouché">
+                    <img src="logolbia11.png" alt="La Bataille de l'IA">
+                    <img src="logotepsa11.png" alt="Tepsa">
+                    <img src="logotrustone11.png" alt="Trustone">
+                    <img src="logomdc11.png" alt="Maison des cadres du Loiret">
+                    <img src="logovinci11.png" alt="Haute Ecole Léonard de Vinci">
                 </div>
+                
+                <button class="carousel-arrow right" onclick="moveCarousel(1)">›</button>
             </div>
         </div>
-    </section>
+</section>
 
     <!-- Opportunity Section -->
     <section class="opportunity-section">
@@ -758,5 +812,60 @@
             <p style="margin-top: 30px; opacity: 0.6; font-size: 14px;">© 2025 Cécile de Larquier · Tous droits réservés</p>
         </div>
     </footer>
+    <script>
+let currentIndex = 0;
+const carousel = document.getElementById('logoCarousel');
+const logos = carousel.querySelectorAll('img');
+const totalLogos = logos.length;
+let autoPlayInterval;
+
+// Fonction pour déplacer le carrousel
+function moveCarousel(direction) {
+    currentIndex += direction;
+    
+    // Boucle infinie
+    if (currentIndex < 0) {
+        currentIndex = totalLogos - 1;
+    } else if (currentIndex >= totalLogos) {
+        currentIndex = 0;
+    }
+    
+    updateCarousel();
+}
+
+// Met à jour l'affichage
+function updateCarousel() {
+    const logoWidth = logos[0].offsetWidth;
+    const gap = 50; // Correspond au gap du CSS
+    const offset = -currentIndex * (logoWidth + gap);
+    carousel.style.transform = `translateX(${offset}px)`;
+}
+
+// Défilement automatique
+function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+        moveCarousel(1);
+    }, 3000); // Change toutes les 3 secondes
+}
+
+// Pause au survol
+carousel.addEventListener('mouseenter', () => {
+    clearInterval(autoPlayInterval);
+});
+
+carousel.addEventListener('mouseleave', () => {
+    startAutoPlay();
+});
+
+// Démarrage automatique au chargement
+window.addEventListener('load', () => {
+    startAutoPlay();
+});
+
+// Responsive : recalculer en cas de redimensionnement
+window.addEventListener('resize', updateCarousel);
+</script>
+</body>
+</html>
 </body>
 </html>
