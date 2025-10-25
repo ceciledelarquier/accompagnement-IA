@@ -515,6 +515,11 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 8px 20px;
     }    
+      .transformation-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px 20px;
+    }
     
     .service-block {
         padding: 25px 15px; /* Réduit les marges latérales */
@@ -542,8 +547,11 @@
     }
       .formation-grid {
         grid-template-columns: 1fr;
-}
-}
+    }
+      .transformation-grid {
+        grid-template-columns: 1fr;
+    }
+  }            
     </style>
 </head>
 <body>
@@ -746,13 +754,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- Transformation -->
+               <!-- Transformation -->
                 <div class="service-block">
                     <div class="service-header">
                         <div class="service-number">2</div>
                         <h3 class="service-title">Transformation</h3>
                     </div>
                     <p style="font-size: 16px; color: #7f8c8d; margin-bottom: 30px;">Déployer l'IA dans votre organisation</p>
+                    
+                    <!-- 4 Piliers -->
                     <div class="pillars-grid">
                         <div class="pillar-card">
                             <h4>Cas d'usage opérationnel</h4>
@@ -769,6 +779,33 @@
                         <div class="pillar-card">
                             <h4>Conduite du changement</h4>
                             <p>Accompagner dans la transformation sur l'outil que vous aurez choisi, mettre en place des réseaux d'ambassadeurs et les nouvelles façons de travailler</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bandeau Méthode -->
+                    <div style="background: #ffffff; padding: 25px 0; border-radius: 10px; margin-top: 30px; border: 3px solid #3f3bc4;">
+                        <div style="color: #2c3e50; font-size: 15px; line-height: 1.8; padding: 0 35px;">
+                            <div style="margin-bottom: 8px;"><strong style="color: #3f3bc4;">📍 Accompagnement sur mesure</strong></div>
+                            <div class="transformation-grid">
+                                <div><span style="color: #27ae60; font-weight: bold;">✓</span> Stratégie IA alignée sur vos objectifs business</div>
+                                <div><span style="color: #27ae60; font-weight: bold;">✓</span> Choix d'outils sécurisés et performants</div>
+                                <div><span style="color: #27ae60; font-weight: bold;">✓</span> Atelier cas d'usage métiers</div>
+                                <div><span style="color: #27ae60; font-weight: bold;">✓</span> Création d'agents IA personnalisés</div>
+                                <div><span style="color: #27ae60; font-weight: bold;">✓</span> Conduite du changement opérationnelle</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bandeau Livrables -->
+                    <div style="background: linear-gradient(135deg, #3f3bc4 0%, #5856d6 100%); padding: 30px 0; border-radius: 10px; margin-top: 20px;">
+                        <div style="padding: 0 35px;">
+                            <h4 style="font-size: 18px; color: #ffffff; margin-bottom: 20px; font-weight: 700;">À l'issue de l'accompagnement, vous repartez avec :</h4>
+                            <div style="color: #ffffff; font-size: 15px; line-height: 1.8;">
+                                <div style="margin-bottom: 10px;">🌱 Livrable avec roadmap, documentation des décisions et ateliers</div>
+                                <div style="margin-bottom: 10px;">🌱 Bibliothèque de prompts opérationnels par cas d'usage</div>
+                                <div style="margin-bottom: 10px;">🌱 Outils recommandés et comparatifs sécurité/performance</div>
+                                <div>🌱 Recommandations priorisées (quick wins, no-code, développement)</div>
+                            </div>
                         </div>
                     </div>
                 </div>
