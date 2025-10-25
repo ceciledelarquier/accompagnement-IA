@@ -594,7 +594,235 @@
       footer div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
     }
-  }            
+  }     
+        /* Section Témoignages */
+        .testimonials-section {
+            padding: 80px 0;
+            background: #ffffff;
+            overflow: hidden;
+        }
+        
+        .stars-container {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            font-size: 48px;
+            color: #FFD700;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .reviews-count {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+        }
+        
+        /* Carrousel de témoignages - Slider */
+        .testimonials-slider-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            padding: 0 60px;
+        }
+        
+        .testimonials-slider {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonials-slide {
+            min-width: 100%;
+            display: flex;
+            gap: 30px;
+            padding: 10px;
+            align-items: start;
+        }
+        
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #3f3bc4;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: fit-content;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        /* Masquer le 2ème avis sur petit écran */
+        @media (max-width: 900px) {
+            .testimonial-card:nth-child(2) {
+                display: none;
+            }
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(63,59,196,0.15);
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #3f3bc4;
+            font-size: 15px;
+        }
+        
+        /* Flèches de navigation */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #3f3bc4;
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-arrow:hover {
+            background: #5856d6;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .slider-arrow.prev {
+            left: 0;
+        }
+        
+        .slider-arrow.next {
+            right: 0;
+        }
+        
+        /* Indicateurs de slides */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #3f3bc4;
+            width: 30px;
+            border-radius: 6px;
+        }
+        
+        /* Encart 100% */
+        .recommendation-box {
+            background: linear-gradient(135deg, #3f3bc4 0%, #5856d6 100%);
+            color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(63,59,196,0.25);
+        }
+        
+        .recommendation-box .big-stat {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .recommendation-box p {
+            font-size: 16px;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+        
+        /* Responsive testimonials */
+        @media (max-width: 768px) {
+            .stars {
+                font-size: 36px;
+            }
+            
+            .testimonials-slider-wrapper {
+                padding: 0 45px;
+            }
+            
+            .testimonials-slide {
+                gap: 20px;
+            }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
+            
+            .testimonial-text {
+                font-size: 14px;
+            }
+            
+            .testimonial-author {
+                font-size: 14px;
+            }
+            
+            .slider-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .slider-dots {
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+            
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .dot.active {
+                width: 24px;
+            }
+            
+            .recommendation-box {
+                padding: 15px 20px;
+            }
+            
+            .recommendation-box .big-stat {
+                font-size: 36px;
+            }
+            
+            .recommendation-box p {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -855,7 +1083,143 @@
                         </div>
                     </div>
                 </div>
-                
+
+                </div>  <!-- Fin du service-block Transformation -->
+            
+        </div>  <!-- Fin solution-content -->
+    </div>  <!-- Fin container -->
+</section>  <!-- Fin solution-section -->
+
+<!-- Section Témoignages -->
+<section class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">Ce qu'ils disent des formations</h2>
+        
+        <!-- Étoiles et nombre d'avis -->
+        <div class="stars-container">
+            <div class="stars">★★★★★</div>
+            <p class="reviews-count">+ de 50 avis 5/5 étoiles</p>
+        </div>
+        
+        <!-- Slider de témoignages -->
+        <div class="testimonials-slider-wrapper">
+            <button class="slider-arrow prev" onclick="changeSlide(-1)">‹</button>
+            
+            <div class="testimonials-slider">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    <!-- Slide 1 : Julie + Tiphaine -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Cécile est dynamique et pédagogue et a très bien préparé cette formation en relation avec notre métier."</p>
+                            <div class="testimonial-author">Julie C.</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Claire, concise, dynamique, intéressante"</p>
+                            <div class="testimonial-author">Tiphaine R.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 : Svetlana + Marie -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Dynamique, intéressant, donne envie d'avoir plus systématiquement recours à l'IA"</p>
+                            <div class="testimonial-author">Svetlana D.</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"La formatrice Cécile est top, professionnelle, souriante, dans la compréhension de chacun, à l'écoute...c'est rare d'avoir des interlocuteurs comme elle. Cette formation est assez complète, cela nous donne une très bonne vue d'ensemble de ce qui est faisable."</p>
+                            <div class="testimonial-author">Marie T.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 : Julie A + Jeremy -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Grande aide pour notre activité plus approfondie et intéressante pour notre métier, un gain de temps, la formatrice était très dynamique et à l'écoute"</p>
+                            <div class="testimonial-author">Julie A.</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Simple et efficace pour avoir les bases"</p>
+                            <div class="testimonial-author">Jeremy H.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 : Valérie + Véronique -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Je pense avoir une vue plus précise et pertinente de l'utilisation que je vais pouvoir faire de l'IA dans ma pratique professionnelle. J'ai beaucoup appris sur les moyens d'optimiser mes prompts."</p>
+                            <div class="testimonial-author">Valérie B.</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Beaucoup d'exemples et cas pratiques sont donnés"</p>
+                            <div class="testimonial-author">Véronique C.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5 : Aude + Damien -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Formatrice très pédagogue et formation agréable et pertinente"</p>
+                            <div class="testimonial-author">Aude P.</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Explication des méthodes de prompts et stratégies pour l'IA"</p>
+                            <div class="testimonial-author">Damien K.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 6 : Emilie + Najla -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Les points forts de cette formation : le contenu, la qualité de l'intervenante, le mix théorique-pratique"</p>
+                            <div class="testimonial-author">Emilie M.</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Dynamisme, cas pratiques applicables à nos activités, écoute de la formatrice et pédagogie"</p>
+                            <div class="testimonial-author">Najla K.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 7 : Gabriel + Charlotte -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Formation très intéressante, c'était super !"</p>
+                            <div class="testimonial-author">Gabriel G.</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Clarté, dynamisme, adaptation à son public"</p>
+                            <div class="testimonial-author">Charlotte T.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 8 : Dernier avis seul -->
+                    <div class="testimonials-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Simple et efficace pour avoir les bases"</p>
+                            <div class="testimonial-author">Jeremy H.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="slider-arrow next" onclick="changeSlide(1)">›</button>
+            
+            <!-- Indicateurs (générés dynamiquement par JavaScript) -->
+            <div class="slider-dots"></div>
+        </div>
+        
+        <!-- Encart 100% recommandation -->
+        <div class="recommendation-box">
+            <span class="big-stat">100%</span>
+            <p>des personnes ayant participé à la formation la recommandent</p>
+        </div>
+    </div>
+</section>
+
+<!-- Reprise de la solution-section pour Benefits -->
+<section class="solution-section">
+    <div class="container">
+        <div class="solution-content">
+           
                 <!-- Benefits -->
                 <div class="benefits-section">
                     <h3>Ce qui fait la différence</h3>
@@ -960,5 +1324,103 @@
         </div>
     </div>
     </footer>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlidesDesktop = 8;
+        const totalSlidesMobile = 15;
+        let isMobile = window.innerWidth <= 900;
+        let autoSlideInterval;
+        
+        function getTotalSlides() {
+            return isMobile ? totalSlidesMobile : totalSlidesDesktop;
+        }
+        
+        function updateSlider() {
+            const track = document.getElementById('testimonialsTrack');
+            const dots = document.querySelectorAll('.dot');
+            
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function changeSlide(direction) {
+            const totalSlides = getTotalSlides();
+            currentSlide += direction;
+            
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            updateSlider();
+            resetAutoSlide();
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetAutoSlide();
+        }
+        
+        function autoSlide() {
+            changeSlide(1);
+        }
+        
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(autoSlide, 5000);
+        }
+        
+        function updateDotsVisibility() {
+            const dotsContainer = document.querySelector('.slider-dots');
+            const totalSlides = getTotalSlides();
+            
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                if (i === currentSlide) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+        }
+        
+        function handleResize() {
+            const wasMobile = isMobile;
+            isMobile = window.innerWidth <= 900;
+            
+            if (wasMobile !== isMobile) {
+                currentSlide = 0;
+                updateDotsVisibility();
+                updateSlider();
+            }
+        }
+        
+        // Démarrage automatique
+        autoSlideInterval = setInterval(autoSlide, 5000);
+        
+        // Pause au survol
+        const sliderWrapper = document.querySelector('.testimonials-slider-wrapper');
+        sliderWrapper.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+        sliderWrapper.addEventListener('mouseleave', () => {
+            resetAutoSlide();
+        });
+        
+        // Gestion du resize
+        window.addEventListener('resize', handleResize);
+        
+        // Initialisation
+        updateDotsVisibility();
+    </script>
+</body>
+</html>
 </body>
 </html>
