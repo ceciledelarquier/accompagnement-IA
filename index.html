@@ -509,17 +509,7 @@
         font-size: 14px; /* Réduit légèrement le titre */
         margin-bottom: 8px;
     }
-    
-    .formation-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px 20px;
-    }    
-      .transformation-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px 20px;
-    }
+              
     @media (min-width: 900px) {
     .formation-grid {
         grid-template-columns: repeat(2, 1fr) !important;
@@ -554,12 +544,6 @@
     .service-title {
         font-size: 20px; /* Réduit de 28px à 20px */
         letter-spacing: 0.5px; /* Réduit de 1px à 0.5px */
-    }
-      .formation-grid {
-        grid-template-columns: 1fr;
-    }
-      .transformation-grid {
-        grid-template-columns: 1fr;
     }
       footer div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
@@ -752,7 +736,7 @@
                     <div style="background: #ffffff; padding: 15px 0; border-radius: 10px; margin-top: 20px; border: 3px solid #3f3bc4;">
                         <div style="color: #2c3e50; font-size: 15px; line-height: 1.6; padding: 0 35px;">
                             <div style="margin-bottom: 8px;"><strong style="color: #3f3bc4;">📍 Formation en présentiel sur 1 journée</strong></div>
-                            <div class="formation-grid">
+                            <div class="formation-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px 20px;">
                                 <div><span style="color: #27ae60; font-weight: bold;">✓</span> Acculturation + prise en main immédiate des outils</div>
                                 <div><span style="color: #27ae60; font-weight: bold;">✓</span> 2 niveaux (débutant/avancé)</div>
                                 <div><span style="color: #27ae60; font-weight: bold;">✓</span> Cas d'usage préparés sur mesure</div>
@@ -805,11 +789,11 @@
                     <div style="background: #ffffff; padding: 15px 0; border-radius: 10px; margin-top: 20px; border: 3px solid #3f3bc4;">
                         <div style="color: #2c3e50; font-size: 15px; line-height: 1.6; padding: 0 35px;">
                             <div style="margin-bottom: 8px;"><strong style="color: #3f3bc4;">📍 Accompagnement sur mesure</strong></div>
-                            <div class="transformation-grid">
+                            <div class="transformation-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px 20px;">
                                 <div><span style="color: #27ae60; font-weight: bold;">✓</span> Stratégie IA alignée sur vos objectifs business</div>
-                                <div><span style="color: #27ae60; font-weight: bold;">✓</span> Choix d'outils sécurisés et performants</div>
                                 <div><span style="color: #27ae60; font-weight: bold;">✓</span> Atelier cas d'usage métiers</div>
                                 <div><span style="color: #27ae60; font-weight: bold;">✓</span> Création d'agents IA personnalisés</div>
+                                <div><span style="color: #27ae60; font-weight: bold;">✓</span> Choix d'outils sécurisés et performants</div>
                                 <div><span style="color: #27ae60; font-weight: bold;">✓</span> Conduite du changement opérationnelle</div>
                             </div>
                         </div>
