@@ -153,7 +153,7 @@
            position: relative;
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 60px;
+            padding: 0 20px;
             overflow: hidden;
         }
         
@@ -188,51 +188,6 @@
                 transform: translateX(-50%);
             }
         }
-
-
-        }
-        
-        /* Flèches */
-        .carousel-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #3f3bc4;
-        color: white;
-        border: none;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 24px;
-        font-weight: bold;
-        z-index: 10;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        padding: 0;
-    }
-    
-    .carousel-arrow:hover {
-        background: #5856d6;
-        transform: translateY(-50%) scale(1.1);
-        box-shadow: 0 6px 20px rgba(63,59,196,0.4);
-    }
-    
-    .carousel-arrow:active {
-        transform: translateY(-50%) scale(0.95);
-    }
-    
-    .carousel-arrow.left {
-        left: 10px;
-    }
-    
-    .carousel-arrow.right {
-        right: 10px;
-    }
         
         /* Opportunity Section */
         .opportunity-section {
@@ -633,7 +588,6 @@
             <h2>Ils m'ont fait confiance :</h2>
             
             <div class="logo-carousel-wrapper">
-                <button class="carousel-arrow left" onclick="moveCarousel(-1)">‹</button>
                 
                 <div class="logo-carousel" id="logoCarousel">
                     <!-- Première série de logos -->
@@ -658,8 +612,6 @@
                     <img src="logomdc11.png" alt="Maison des cadres du Loiret">
                     <img src="logovinci11.png" alt="Haute Ecole Léonard de Vinci">
                 </div>
-                
-                <button class="carousel-arrow right" onclick="moveCarousel(1)">›</button>
             </div>
         </div>
 </section>
@@ -758,12 +710,21 @@
                             <p>Apprendre à prompter pour maximiser la performance de l'outil</p>
                         </div>
                         <div class="pillar-card">
-                            <h4>Actionnable</h4>
+                            <h4>Actionnabilité</h4>
                             <p>Identifier en session les cas d'usage concrets pour votre métier</p>
                         </div>
                     </div>
                 </div>
-                
+                <!-- Bandeau Formation -->
+                <div style="background: linear-gradient(135deg, #3f3bc4 0%, #5856d6 100%); padding: 25px 35px; border-radius: 10px; margin-top: 25px;">
+                    <div style="color: #ffffff; font-size: 15px; line-height: 1.8;">
+                        <div style="margin-bottom: 8px;"><strong>📍 Formation en présentiel sur 1 journée</strong></div>
+                        <div>✓ Acculturation + prise en main immédiate des outils</div>
+                        <div>✓ 2 niveaux (débutant/avancé)</div>
+                        <div>✓ Cas d'usage préparés sur mesure</div>
+                        <div>✓ SAV WhatsApp 1 mois inclus</div>
+                    </div>
+                </div>
                 <!-- Transformation -->
                 <div class="service-block">
                     <div class="service-header">
@@ -841,6 +802,16 @@
                 </div>
             </div>
         </div>
+        <div style="background: linear-gradient(135deg, #3f3bc4 0%, #5856d6 100%); padding: 25px 35px; border-radius: 10px; margin-top: 25px;">
+            <div style="color: #ffffff; font-size: 15px; line-height: 1.8;">
+                <div style="margin-bottom: 8px;"><strong>📍 Accompagnement sur mesure</strong></div>
+                <div>✓ Stratégie IA alignée sur vos objectifs business</div>
+                <div>✓ Choix d'outils sécurisés et performants</div>
+                <div>✓ Atelier cas d'usage métiers</div>
+                <div>✓ Création d'agents IA personnalisés</div>
+                <div>✓ Conduite du changement opérationnelle</div>
+            </div>
+        </div>
     </section>
 
     <!-- Final CTA -->
@@ -884,25 +855,6 @@
             <p style="margin-top: 30px; opacity: 0.6; font-size: 14px;">© 2025 Cécile de Larquier · Tous droits réservés</p>
         </div>
     </footer>
-    <script>
-const carousel = document.getElementById('logoCarousel');
-let isPaused = false;
-
-// Fonction pour accélérer/ralentir le défilement
-function moveCarousel(direction) {
-    if (direction === -1) {
-        // Ralentit temporairement
-        carousel.style.animationDuration = '30s';
-        setTimeout(() => {
-            carousel.style.animationDuration = '20s';
-        }, 2000);
-    } else {
-        // Accélère temporairement
-        carousel.style.animationDuration = '10s';
-        setTimeout(() => {
-            carousel.style.animationDuration = '20s';
-        }, 2000);
-    }
 }
 
 // Pause au survol (déjà géré par CSS :hover)
