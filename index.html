@@ -1334,7 +1334,6 @@
         </div>
     </div>
     </footer>
-    </footer>
 
     <script>
         let currentSlide = 0;
@@ -1412,6 +1411,11 @@
             }
         }
         
+      // Attendre que la page soit chargée
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialisation
+        updateDotsVisibility();
+        
         // Démarrage automatique
         autoSlideInterval = setInterval(autoSlide, 5000);
         
@@ -1426,9 +1430,7 @@
         
         // Gestion du resize
         window.addEventListener('resize', handleResize);
-        
-        // Initialisation
-        updateDotsVisibility();
+        });
     </script>
 </body>
 </html>
