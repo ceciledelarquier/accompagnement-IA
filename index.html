@@ -520,7 +520,17 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 8px 20px;
     }
-    
+    @media (min-width: 900px) {
+    .formation-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 1000px) {
+    .transformation-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
     .service-block {
         padding: 25px 15px; /* Réduit les marges latérales */
     }
