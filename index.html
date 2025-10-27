@@ -658,10 +658,23 @@
             min-width: 0;
         }
         
-        /* Masquer le 2ème avis sur petit écran */
+        /* Masquer slides desktop sur mobile */
         @media (max-width: 900px) {
-            .testimonial-card:nth-child(2) {
-                display: none;
+            .testimonials-slide.desktop-slide {
+                display: none !important;
+            }
+            .testimonials-slide.mobile-slide {
+                display: flex !important;
+            }
+        }
+        
+        /* Masquer slides mobile sur desktop */
+        @media (min-width: 901px) {
+            .testimonials-slide.mobile-slide {
+                display: none !important;
+            }
+            .testimonials-slide.desktop-slide {
+                display: flex !important;
             }
         }
         
@@ -1119,7 +1132,7 @@
                 <div class="testimonials-track" id="testimonialsTrack">
                     
                     <!-- Slide 1 : Svetlana + Marie -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Dynamique, intéressant, donne envie d'avoir plus systématiquement recours à l'IA"</p>
                             <div class="testimonial-author">Svetlana D.</div>
@@ -1131,7 +1144,7 @@
                     </div>
                     
                      <!-- Slide 2 : Nathalie + Vanessa -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Merci pour la présentation 😊 C'était très intéressant, je suis ravie d'offrir des interventions de cette qualité à nos participants."</p>
                             <div class="testimonial-author">Nathalie L.</div>
@@ -1142,20 +1155,20 @@
                         </div>
                     </div>
                     
-                    <!-- Slide 3 : Marie Pierre + Damien K -->
-                    <div class="testimonials-slide">
+                    <!-- Slide 3 : Marie Pierre + Damien S -->
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Votre formation a vraiment été efficace, car depuis une semaine, j'ai eu l'occasion de mettre en pratique à plusieurs reprises pour un résultat vraiment étonnant et surtout rapide."</p>
                             <div class="testimonial-author">Marie Pierre J.</div>
                         </div>
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Merci pour cette très intéressante intervention. J'utilisai déjà ChatGPT et Perplexity, avec plus ou moins de succès ; je vais désormais m'employer à utiliser ces instruments de façon plus pro. et sans doute souscrire un abonnement business."</p>
-                            <div class="testimonial-author">Damien K.</div>
+                            <div class="testimonial-author">Damien S.</div>
                         </div>
                     </div>
                     
                     <!-- Slide 4 : Lydie + Charlotte -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Merci encore à toi de ta gentillesse. Je me répète mais je te confirme que, pour ma part, ta formation était celle (et de loin) la plus intéressante et la plus vivante de l'année 😉 Bonne journée et peut être à bientôt pour une mise à niveau de cet « outil » qui évolue à vitesse grand V …."</p>
                             <div class="testimonial-author">Lydie P.</div>
@@ -1167,7 +1180,7 @@
                     </div>
                     
                     <!-- Slide 5 : Julie A + Jeremy -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Grande aide pour notre activité plus approfondie et intéressante pour notre métier, un gain de temps, la formatrice était très dynamique et à l'écoute"</p>
                             <div class="testimonial-author">Julie A.</div>
@@ -1179,7 +1192,7 @@
                     </div>
                     
                     <!-- Slide 6 : Julie + Tiphaine -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Cécile est dynamique et pédagogue et a très bien préparé cette formation en relation avec notre métier."</p>
                             <div class="testimonial-author">Julie C.</div>
@@ -1191,7 +1204,7 @@
                     </div>
                     
                     <!-- Slide 7 : Valérie + Véronique -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Je pense avoir une vue plus précise et pertinente de l'utilisation que je vais pouvoir faire de l'IA dans ma pratique professionnelle. J'ai beaucoup appris sur les moyens d'optimiser mes prompts."</p>
                             <div class="testimonial-author">Valérie B.</div>
@@ -1203,7 +1216,7 @@
                     </div>
                     
                     <!-- Slide 8 : Aude + Damien -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Formatrice très pédagogue et formation agréable et pertinente"</p>
                             <div class="testimonial-author">Aude P.</div>
@@ -1215,7 +1228,7 @@
                     </div>
                     
                     <!-- Slide 9 : Emilie + Najla -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Les points forts de cette formation : le contenu, la qualité de l'intervenante, le mix théorique-pratique"</p>
                             <div class="testimonial-author">Emilie M.</div>
@@ -1227,7 +1240,140 @@
                     </div>
                     
                     <!-- Slide 10 : Gabriel seul -->
-                    <div class="testimonials-slide">
+                    <div class="testimonials-slide desktop-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Formation très intéressante, c'était super !"</p>
+                            <div class="testimonial-author">Gabriel G.</div>
+                        </div>
+                    </div>
+                    <!-- SLIDES MOBILES (1 card par slide) -->
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Dynamique, intéressant, donne envie d'avoir plus systématiquement recours à l'IA"</p>
+                            <div class="testimonial-author">Svetlana D.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"La formatrice Cécile est top, professionnelle, souriante, dans la compréhension de chacun, à l'écoute...c'est rare d'avoir des interlocuteurs comme elle. Cette formation est assez complète, cela nous donne une très bonne vue d'ensemble de ce qui est faisable."</p>
+                            <div class="testimonial-author">Marie T.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Merci pour la présentation 😊 C'était très intéressant, je suis ravie d'offrir des interventions de cette qualité à nos participants."</p>
+                            <div class="testimonial-author">Nathalie L.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Je vous remercie pour la qualité de votre formation. Je me sers depuis quasiment tous les jours de l'IA, même si c'est encore de manière ponctuelle. Les applications m'ont notamment aidé à rédiger les comptes-rendus de rendez-vous et des consultations. Je ne manquerai pas de recommander votre formation."</p>
+                            <div class="testimonial-author">Vanessa P.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Votre formation a vraiment été efficace, car depuis une semaine, j'ai eu l'occasion de mettre en pratique à plusieurs reprises pour un résultat vraiment étonnant et surtout rapide."</p>
+                            <div class="testimonial-author">Marie Pierre J.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Merci pour cette très intéressante intervention. J'utilisai déjà ChatGPT et Perplexity, avec plus ou moins de succès ; je vais désormais m'employer à utiliser ces instruments de façon plus pro. et sans doute souscrire un abonnement business."</p>
+                            <div class="testimonial-author">Damien K.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Merci encore à toi de ta gentillesse. Je me répète mais je te confirme que, pour ma part, ta formation était celle (et de loin) la plus intéressante et la plus vivante de l'année 😉 Bonne journée et peut être à bientôt pour une mise à niveau de cet « outil » qui évolue à vitesse grand V …."</p>
+                            <div class="testimonial-author">Lydie P.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Clarté, dynamisme, adaptation à son public"</p>
+                            <div class="testimonial-author">Charlotte T.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Grande aide pour notre activité plus approfondie et intéressante pour notre métier, un gain de temps, la formatrice était très dynamique et à l'écoute"</p>
+                            <div class="testimonial-author">Julie A.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Simple et efficace pour avoir les bases"</p>
+                            <div class="testimonial-author">Jeremy H.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Cécile est dynamique et pédagogue et a très bien préparé cette formation en relation avec notre métier."</p>
+                            <div class="testimonial-author">Julie C.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Claire, concise, dynamique, intéressante"</p>
+                            <div class="testimonial-author">Tiphaine R.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Je pense avoir une vue plus précise et pertinente de l'utilisation que je vais pouvoir faire de l'IA dans ma pratique professionnelle. J'ai beaucoup appris sur les moyens d'optimiser mes prompts."</p>
+                            <div class="testimonial-author">Valérie B.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Beaucoup d'exemples et cas pratiques sont donnés"</p>
+                            <div class="testimonial-author">Véronique C.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Formatrice très pédagogue et formation agréable et pertinente"</p>
+                            <div class="testimonial-author">Aude P.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Explication des méthodes de prompts et stratégies pour l'IA"</p>
+                            <div class="testimonial-author">Damien K.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Les points forts de cette formation : le contenu, la qualité de l'intervenante, le mix théorique-pratique"</p>
+                            <div class="testimonial-author">Emilie M.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Dynamisme, cas pratiques applicables à nos activités, écoute de la formatrice et pédagogie"</p>
+                            <div class="testimonial-author">Najla K.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonials-slide mobile-slide">
                         <div class="testimonial-card">
                             <p class="testimonial-text">"Formation très intéressante, c'était super !"</p>
                             <div class="testimonial-author">Gabriel G.</div>
@@ -1237,6 +1383,8 @@
             </div>
             
             <button class="slider-arrow next" onclick="changeSlide(1)">›</button>
+                </div>
+            </div>
             
             <!-- Indicateurs (générés dynamiquement par JavaScript) -->
             <div class="slider-dots"></div>
@@ -1362,13 +1510,17 @@
 
     <script>
         let currentSlide = 0;
-        const totalSlidesDesktop = 8;
-        const totalSlidesMobile = 15;
         let isMobile = window.innerWidth <= 900;
         let autoSlideInterval;
         
         function getTotalSlides() {
-            return isMobile ? totalSlidesMobile : totalSlidesDesktop;
+            if (isMobile) {
+                // Sur mobile : compter seulement les slides mobiles (1 card/slide)
+                return document.querySelectorAll('.testimonials-slide.mobile-slide').length;
+            } else {
+                // Sur desktop : compter seulement les slides desktop (2 cards/slide)
+                return document.querySelectorAll('.testimonials-slide.desktop-slide').length;
+            }
         }
         
         function updateSlider() {
